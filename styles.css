@@ -162,3 +162,35 @@ footer {
 .far {
     margin: 3px;
 }
+
+/* Project Page Styling */
+
+.projects {
+    display: flex;
+    height: 900px;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    font-size: 24px;
+}
+
+.project-item {
+    margin-top: 50px;
+    background-color: #1963B2;
+    border-radius: 50px;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+}
+
+.project-item>a {
+    color: white;
+}
