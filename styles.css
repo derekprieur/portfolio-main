@@ -64,14 +64,6 @@ li {
     }
 }
 
-.styled-break {
-    width: 30px;
-    height: 5px;
-    background-color: #a17df4;
-    border-radius: 2.5px;
-    margin: 30px 0 30px 0;
-}
-
 .avatar {
     width: 100px;
     border-radius: 50px;
@@ -110,30 +102,6 @@ section {
     margin: 30px;
 }
 
-.test {
-    width: 30px;
-    height: 30px;
-    background-color: purple;
-    margin: 5px;
-}
-
-.button {
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: #ef866c;
-    width: 80px;
-    border-radius: 20px;
-    color: white;
-    text-transform: uppercase;
-    font-size: 12px;
-    text-align: center;
-}
-
-button:hover {
-    background-color: #ef744b;
-}
-
 form {
     margin: 0 0 40px 0;
 }
@@ -155,7 +123,7 @@ a {
 }
 
 a:hover {
-    color: orange;
+    color: #1963B2;
 }
 
 footer {
