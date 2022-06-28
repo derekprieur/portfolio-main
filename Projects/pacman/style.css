@@ -1,0 +1,97 @@
+main {
+    display: flex;
+    flex-direction: column;
+    height: 900px;
+    justify-content: end;
+    align-items: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 560px;
+    height: 560px;
+    border: solid black;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-icon {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: yellow;
+}
+
+.wall {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+.base {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+
+.power {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.power-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: orange;
+}
+
+.empty {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+
+.pacman {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: yellow;
+}
+
+.blinky {
+    background-color: red;
+}
+
+.pinky {
+    background-color: pink;
+}
+
+.inky {
+    background-color: cyan;
+}
+
+.clyde {
+    background-color: orange;
+}
+
+.scared-ghost {
+    background-color: aquamarine;
+}
+
+.win {
+    margin-top: 0px;
+    visibility: hidden;
+}
