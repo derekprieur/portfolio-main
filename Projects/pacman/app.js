@@ -113,6 +113,7 @@ function movePacman(e) {
     }
     squares[pacmanLocation].classList.add('pacman')
     checkForPoint()
+    checkForLose()
 }
 
 function checkForPoint() {
@@ -139,7 +140,25 @@ function checkForWin() {
     if (numCollectibles === 0) {
         winDisplay.style.visibility = "visible"
         document.removeEventListener('keydown', movePacman)
+        stopGhosts()
     }
+}
+
+function checkForLose() {
+    ghosts.forEach(ghost => {
+        if (ghost.currentIndex == pacmanLocation) {
+            winDisplay.style.visibility = "visible"
+            winDisplay.innerHTML = "YOU LOSE"
+            document.removeEventListener('keydown', movePacman)
+            stopGhosts()
+        }
+    })
+}
+
+function stopGhosts() {
+    ghosts.forEach(ghost => {
+        clearInterval(ghost.timerId)
+    })
 }
 
 generateBoard()
