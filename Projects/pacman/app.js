@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.getElementById('score')
 const winDisplay = document.querySelector('.win')
+const newGameButton = document.querySelector('.new-game')
 const width = 28
 const layout = [
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -33,11 +34,25 @@ const layout = [
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ]
 
-const squares = []
+let squares = []
 let numCollectibles = 0
 let score = 0
 
 // 0 = dot, 1 = wall, 2 = ghost base, 3 = power, 4 = empty
+
+newGameButton.addEventListener('click', () => {
+    score = 0
+    scoreDisplay.innerHTML = score
+    grid.innerHTML = ''
+    squares = []
+    generateBoard()
+    pacmanLocation = 490
+    squares[pacmanLocation].classList.add('pacman')
+    ghosts.forEach(ghost => {
+        ghost.currentIndex = ghost.startIndex
+    })
+}
+)
 
 function generateBoard() {
     for (let i = 0; i < layout.length; i++) {
@@ -69,6 +84,11 @@ function generateBoard() {
     }
 
 }
+
+generateBoard()
+
+let pacmanLocation = 490
+squares[pacmanLocation].classList.add('pacman')
 
 function movePacman(e) {
     squares[pacmanLocation].classList.remove('pacman')
@@ -112,6 +132,7 @@ function movePacman(e) {
             break;
     }
     squares[pacmanLocation].classList.add('pacman')
+    checkForGhostEaten()
     checkForPoint()
     checkForLose()
 }
@@ -131,6 +152,7 @@ function checkForPoint() {
         squares[pacmanLocation].classList.add('empty')
         squares[pacmanLocation].innerHTML = ''
         numCollectibles--
+        powerEaten()
     }
 
     checkForWin()
@@ -146,11 +168,26 @@ function checkForWin() {
 
 function checkForLose() {
     ghosts.forEach(ghost => {
-        if (ghost.currentIndex == pacmanLocation) {
+        if (ghost.currentIndex == pacmanLocation && !ghost.isScared) {
             winDisplay.style.visibility = "visible"
             winDisplay.innerHTML = "YOU LOSE"
             document.removeEventListener('keydown', movePacman)
             stopGhosts()
+        }
+    })
+}
+
+function checkForGhostEaten() {
+    ghosts.forEach(ghost => {
+        if (ghost.currentIndex == pacmanLocation && ghost.isScared) {
+            squares[ghost.currentIndex].classList.remove(ghost.className)
+            squares[ghost.currentIndex].classList.remove('ghost')
+            squares[ghost.currentIndex].classList.remove('scared-ghost')
+            ghost.currentIndex = ghost.startIndex
+            squares[ghost.currentIndex].classList.add(ghost.className)
+            squares[ghost.currentIndex].classList.add('ghost')
+            score += 100
+            scoreDisplay.innerHTML = score
         }
     })
 }
@@ -160,11 +197,6 @@ function stopGhosts() {
         clearInterval(ghost.timerId)
     })
 }
-
-generateBoard()
-
-let pacmanLocation = 490
-squares[pacmanLocation].classList.add('pacman')
 
 document.addEventListener('keydown', movePacman)
 
@@ -177,6 +209,7 @@ class Ghost {
         this.timerId = NaN
         this.onNonEmptySpace = false
         this.previousIndex = startIndex
+        this.isScared = false
     }
 }
 
@@ -211,6 +244,7 @@ function moveGhost(ghost) {
                 !squares[ghost.currentIndex + direction].classList.contains('base')) {
                 // remove ghost classes from current space
                 squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost')
+                squares[ghost.currentIndex].classList.remove('scared-ghost')
                 //update current space
                 ghost.currentIndex = ghost.currentIndex + direction
                 //set ghost classes on updated space
@@ -218,7 +252,6 @@ function moveGhost(ghost) {
 
                 if (squares[ghost.currentIndex].classList.contains('dot')) {
                     ghost.onNonEmptySpace = true
-                    console.log(ghost.onNonEmptySpace)
                 }
             }
 
@@ -227,11 +260,37 @@ function moveGhost(ghost) {
             !squares[ghost.currentIndex + direction].classList.contains('ghost')) {
             squares[ghost.currentIndex].classList.remove(ghost.className)
             squares[ghost.currentIndex].classList.remove('ghost')
+            squares[ghost.currentIndex].classList.remove('scared-ghost')
             ghost.currentIndex = ghost.currentIndex + direction
             squares[ghost.currentIndex].classList.add(ghost.className)
             squares[ghost.currentIndex].classList.add('ghost')
         }
         direction = directions[Math.floor(Math.random() * directions.length)]
+
+        if (ghost.isScared) {
+            squares[ghost.currentIndex].classList.add('scared-ghost')
+        }
+
+        if (ghost.isScared && ghost.currentIndex === pacmanLocation) {
+            squares[ghost.currentIndex].classList.remove(ghost.className)
+            squares[ghost.currentIndex].classList.remove('ghost')
+            squares[ghost.currentIndex].classList.remove('scared-ghost')
+            ghost.currentIndex = ghost.startIndex
+            squares[ghost.currentIndex].classList.add(ghost.className)
+            squares[ghost.currentIndex].classList.add('ghost')
+        }
+
     }, ghost.speed)
 
+}
+
+function powerEaten() {
+    ghosts.forEach(ghost => {
+        ghost.isScared = true
+        setTimeout(returnGhostsToNormal, 10000)
+    })
+}
+
+function returnGhostsToNormal() {
+    ghosts.forEach(ghost => ghost.isScared = false)
 }
