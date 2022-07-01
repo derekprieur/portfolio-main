@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 900px;
+}
+
+.grid {
+    height: 900px;
+    width: 1200px;
+    border: solid black 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: 300px;
+    width: 300px;
+    background-color: white;
+}
