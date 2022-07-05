@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 900px;
+    font-family: 'Gentium Book Plus', serif;
+    /* font-family: 'Nunito', sans-serif; */
+    background-color: #758AC7;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.grid {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 0.25px solid black;
+    border-radius: 25px;
+}
+
+.block {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+}
+
+.game-info {
+    margin-top: 20px;
+    display: flex;
+    width: 640px;
+    justify-content: space-evenly;
+}
+
+.moves-container {
+    background-color: hotpink;
+    border-radius: 20px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.score-container {
+    background-color: hotpink;
+    border-radius: 20px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
