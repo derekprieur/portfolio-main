@@ -10,10 +10,11 @@ nav {
     height: 150px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    width: 600px;
+    min-width: 600px;
     height: 30px;
     margin-left: 50px;
     font-size: 30px;
@@ -29,6 +30,7 @@ li {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .hero-info {
@@ -37,8 +39,7 @@ li {
 
 .hero-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    max-height: 650px;
 }
 
 .hero-image {
@@ -48,8 +49,6 @@ li {
     border-radius: 50px;
     visibility: visible;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .hero-description {
@@ -141,7 +140,7 @@ footer {
 }
 
 .socials {
-    width: 600px;
+    max-width: 600px;
     display: flex;
     justify-content: center;
 }
@@ -164,6 +163,7 @@ footer {
 
 .theme {
     margin-top: 15px;
+    margin-left: 30px;
     height: 50px;
     width: 100px;
     border: 1px solid black;
@@ -210,8 +210,9 @@ footer {
     background-color: white;
     margin-top: 10px;
     font-size: 30px;
-    margin-left: auto;
+    /* margin-left: auto; */
     width: 50px;
+    text-align: center;
 }
 
 .hamburger:focus {
@@ -254,12 +255,9 @@ footer {
     }
 
     .hero-image {
-        height: 450px;
-        width: 350px;
         margin-top: 150px;
         margin-left: 400px;
         border-radius: 50px;
-        visibility: visible;
     }
 
     .hero {
@@ -316,16 +314,4 @@ footer {
 
 .project-item>a {
     color: white;
-}
-
-@media only screen and (min-width: 1200px) {
-
-    #myResume {
-        width: 80%;
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 50px;
-    }
-
 }
