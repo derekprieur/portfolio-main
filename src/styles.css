@@ -6,7 +6,7 @@ body {
 }
 
 nav {
-    width: 100%;
+    width: 90%;
     height: 150px;
     display: flex;
     align-items: center;
@@ -210,8 +210,8 @@ footer {
     background-color: white;
     margin-top: 10px;
     font-size: 30px;
-    /* margin-left: auto; */
-    width: 50px;
+    margin-left: auto;
+    /* width: 50px; */
     text-align: center;
 }
 
@@ -256,12 +256,12 @@ footer {
 
     .hero-image {
         margin-top: 150px;
-        margin-left: 400px;
+        margin-left: 100px;
         border-radius: 50px;
     }
 
     .hero {
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -269,6 +269,7 @@ footer {
     }
 
     nav {
+        width: 100%;
         height: 50px;
         justify-content: space-between;
     }
