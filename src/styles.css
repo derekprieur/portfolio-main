@@ -8,10 +8,14 @@ body {
     display: flex;
     padding: 0;
     margin: 0;
+    height: 100vh;
+    width: 100vw;
     flex-direction: column;
     font-family: 'Nunito', sans-serif;
     background-color: white;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
 nav {
@@ -308,7 +312,7 @@ footer {
     list-style-type: none;
     font-size: 24px;
     width: 800px;
-    height: 500px;
+    height: 600px;
 }
 
 .project-item {
