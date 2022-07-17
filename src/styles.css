@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     font-family: 'Nunito', sans-serif;
     background-color: white;
+    overflow: hidden;
 }
 
 nav {
