@@ -17,7 +17,12 @@ hamburger.addEventListener('click', () => {
     console.log("hamburger click")
 })
 
-toggleBtn.addEventListener('click', toggleMode)
+try {
+    toggleBtn.addEventListener('click', toggleMode)
+} catch {
+    console.log('')
+}
+
 
 function toggleMode() {
     if (currentMode == "light") {
