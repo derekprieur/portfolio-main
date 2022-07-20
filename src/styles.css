@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     font-family: 'Nunito', sans-serif;
     background-color: white;
-    overflow: hidden;
+    /* overflow: hidden; */
     justify-content: space-between;
     align-items: center;
 }
@@ -251,6 +251,10 @@ footer {
 }
 
 @media only screen and (min-width: 1200px) {
+    body {
+        overflow: hidden;
+    }
+
     .hamburger {
         display: none;
     }
@@ -303,6 +307,7 @@ footer {
 .projects {
     display: flex;
     height: 90vh;
+    width: 100vw;
     justify-content: center;
 }
 
@@ -314,7 +319,7 @@ footer {
     list-style-type: none;
     font-size: 24px;
     width: 800px;
-    height: 70vh;
+    height: 80vh;
 }
 
 .project-item {
