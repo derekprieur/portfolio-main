@@ -317,8 +317,8 @@ footer {
     flex-wrap: wrap;
     list-style-type: none;
     font-size: 24px;
-    width: 800px;
-    height: 80vh;
+    width: 100vw;
+    height: 60vh;
 }
 
 .project-item {
